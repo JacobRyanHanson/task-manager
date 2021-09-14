@@ -11,5 +11,3 @@ function crateTaskHandler() {
     listItemEl.textContent = "New Task";
     tasksToDoEL.appendChild(listItemEl);
 }
-
-
