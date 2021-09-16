@@ -12,7 +12,7 @@ var tasksCompletedEl = document.querySelector("#tasks-completed");
 formEl.addEventListener("submit", taskFormHandler);
 pageContentEl.addEventListener("click", taskButtonHandler);
 pageContentEl.addEventListener("change", taskStatusChangeHandler);
-debugger;
+
 loadTasks();
 
 function taskFormHandler(event) {
