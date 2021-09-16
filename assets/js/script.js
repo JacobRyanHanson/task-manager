@@ -12,6 +12,8 @@ var tasksCompletedEl = document.querySelector("#tasks-completed");
 formEl.addEventListener("submit", taskFormHandler);
 pageContentEl.addEventListener("click", taskButtonHandler);
 pageContentEl.addEventListener("change", taskStatusChangeHandler);
+debugger;
+loadTasks();
 
 function taskFormHandler(event) {
     var taskNameInput = document.querySelector("input[name='task-name']").value;
@@ -110,7 +112,6 @@ function taskButtonHandler(event) {
 }
 
 function taskStatusChangeHandler(event) {
-    debugger;
     var taskId = event.target.getAttribute("data-task-id");
     var statusValue = event.target.value.toLowerCase();
     var taskSelected = document.querySelector(".task-item[data-task-id='" + taskId + "']");
@@ -177,4 +178,15 @@ function deleteTask(taskId) {
 
 function saveTasks() {
     localStorage.setItem("tasks", JSON.stringify(tasks));
+}
+
+function loadTasks() {
+    var savedTasks = JSON.parse(localStorage.getItem("tasks"));
+    if (!savedTasks) {
+        return false;
+    } 
+
+    for (var i = 0; i < savedTasks.length; i++) {
+        createTaskEl(savedTasks[i]);
+    }
 }
